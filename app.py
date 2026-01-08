@@ -185,7 +185,7 @@ CONCURRENT_LIMIT = 50  # عدد الاتصالات المتزامنة
 async def fetch_token(session, uid, password):
     url = JWT_API_TEMPLATE.format(uid=uid, password=password)
     try:
-        async with session.get(url, timeout=10) as resp:
+        async with session.get(url, timeout=15) as resp:
             if resp.status == 200:
                 data = await resp.json()
                 token = data.get("token")
